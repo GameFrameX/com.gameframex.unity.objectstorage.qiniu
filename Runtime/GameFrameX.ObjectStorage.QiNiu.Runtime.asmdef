@@ -1,7 +1,9 @@
 {
     "name": "GameFrameX.ObjectStorage.QiNiu.Runtime",
     "rootNamespace": "GameFrameX.ObjectStorage.QiNiu.Runtime",
-    "references": [],
+    "references": [
+        "GameFrameX.ObjectStorage.Runtime"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
