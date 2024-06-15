@@ -6,6 +6,8 @@ GameFrameX 的 Object Storage 七牛云 组件
 
 # 使用文档(文档编写于GPT4)
 
+参照父组件文档使用
+
 ## 注意事项
 
 # 使用方式(任选其一)

@@ -1,7 +1,9 @@
 {
     "name": "GameFrameX.ObjectStorage.QiNiu.Tests",
     "references": [
-        "GameFrameX.ObjectStorage.Editor"
+        "GameFrameX.ObjectStorage.Editor",
+        "GameFrameX.ObjectStorage.QiNiu.Runtime",
+        "GameFrameX.ObjectStorage.Runtime"
     ],
     "rootNamespace": "GameFrameX.ObjectStorage.QiNiu.Tests",
     "includePlatforms": [
