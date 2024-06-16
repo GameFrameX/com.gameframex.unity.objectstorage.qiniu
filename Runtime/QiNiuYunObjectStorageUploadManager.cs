@@ -20,7 +20,7 @@ namespace GameFrameX.ObjectStorage.QiNiu.Runtime
         private Mac _mac;
         private string _bucketName;
 
-        public override void Init(string accessKey, string secretKey, string bucketName)
+        public override void Init(string accessKey, string secretKey, string bucketName, string endpoint = null)
         {
             if (_isInit)
             {
