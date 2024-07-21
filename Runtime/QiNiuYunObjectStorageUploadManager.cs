@@ -64,5 +64,26 @@ namespace GameFrameX.ObjectStorage.QiNiu.Runtime
                 UploadDirectoryInternal(directory.FullName);
             }
         }
+
+        protected override bool UploadFileInternal(string localFilePathAndName)
+        {
+            FileInfo fileInfo = new FileInfo(localFilePathAndName);
+            if (fileInfo.Exists)
+            {
+                var savePath = BucketSavePath + fileInfo.FullName.Substring(UploadRootPath.Length);
+                var result = _uploadManager.UploadFile(fileInfo.FullName, savePath, _token, null);
+                if (result.Code != 200)
+                {
+                    Debug.LogError($"上传文件失败,本地文件路径：{fileInfo.FullName}\n 目标存储路径:{savePath}");
+                    Debug.LogError(result.Text);
+                    return false;
+                }
+
+                return true;
+            }
+
+            Debug.LogError($"上传文件失败,本地文件路径：{fileInfo.FullName} 不存在");
+            return false;
+        }
     }
 }
