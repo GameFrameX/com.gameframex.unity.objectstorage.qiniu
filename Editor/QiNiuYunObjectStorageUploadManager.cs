@@ -70,7 +70,7 @@ namespace GameFrameX.ObjectStorage.QiNiu.Editor
             FileInfo fileInfo = new FileInfo(localFilePathAndName);
             if (fileInfo.Exists)
             {
-                var savePath = BucketSavePath + fileInfo.FullName.Substring(UploadRootPath.Length);
+                var savePath = BucketSavePath + Path.DirectorySeparatorChar + fileInfo.Name;
                 var result = _uploadManager.UploadFile(fileInfo.FullName, savePath, _token, null);
                 if (result.Code != 200)
                 {
