@@ -1,6 +1,6 @@
 using System;
-using GameFrameX.ObjectStorage.QiNiu.Runtime;
-using GameFrameX.ObjectStorage.Runtime;
+using GameFrameX.ObjectStorage.QiNiu.Editor;
+using GameFrameX.ObjectStorage.Editor;
 using NUnit.Framework;
 
 namespace GameFrameX.ObjectStorage.QiNiu.Tests

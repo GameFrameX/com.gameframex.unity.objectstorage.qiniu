@@ -3,7 +3,8 @@
     "rootNamespace": "GameFrameX.ObjectStorage.QiNiu.Editor",
     "references": [
         "GameFrameX.Editor",
-        "GameFrameX.Runtime"
+        "GameFrameX.Runtime",
+        "GameFrameX.ObjectStorage.Editor"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,11 +1,11 @@
 using System.IO;
-using GameFrameX.ObjectStorage.Runtime;
+using GameFrameX.ObjectStorage.Editor;
 using Qiniu.Storage;
 using Qiniu.Util;
 using UnityEngine;
 using FileInfo = System.IO.FileInfo;
 
-namespace GameFrameX.ObjectStorage.QiNiu.Runtime
+namespace GameFrameX.ObjectStorage.QiNiu.Editor
 {
     /// <summary>
     /// 七牛云的对象存储
