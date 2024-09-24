@@ -1,4 +1,5 @@
 using System.IO;
+using System.Net;
 using GameFrameX.ObjectStorage.Editor;
 using Qiniu.Storage;
 using Qiniu.Util;
@@ -72,7 +73,7 @@ namespace GameFrameX.ObjectStorage.QiNiu.Editor
             {
                 var savePath = BucketSavePath + Path.DirectorySeparatorChar + fileInfo.Name;
                 var result = _uploadManager.UploadFile(fileInfo.FullName, savePath, _token, null);
-                if (result.Code != 200)
+                if (result.Code != (int)HttpStatusCode.OK)
                 {
                     Debug.LogError($"上传文件失败,本地文件路径：{fileInfo.FullName}\n 目标存储路径:{savePath}");
                     Debug.LogError(result.Text);
