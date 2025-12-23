@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/compare/1.0.8...1.1.0) (2025-12-23)
+
+
+### Features
+
+* **ci:** change ci ([254272b](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/commit/254272b29990909be2d264bca248ff82e174c51d))
+
 # Changelog
 
 ## [1.0.8](https://github.com/GameFrameX/com.gameframex.unity.objectstorage.qiniu/tree/1.0.8) (2025-06-01)
