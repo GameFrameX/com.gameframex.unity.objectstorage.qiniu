@@ -18,9 +18,11 @@ namespace GameFrameX.ObjectStorage.QiNiu.Tests
         }
 
         [Test]
-        public void TestUpload()
+        public void Create_ReturnsQiniuUploadManager()
         {
-            _manager.UploadDirectory("./");
+            // 工厂按类型参数创建七牛上传管理器：本地凭证构造，无网络 I/O。
+            Assert.IsNotNull(_manager);
+            Assert.IsInstanceOf<QiNiuYunObjectStorageUploadManager>(_manager);
         }
     }
 }
