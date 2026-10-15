@@ -3,7 +3,7 @@
   "displayName": "Game Frame X Object Storage QiNiu",
   "category": "Game Frame X",
   "description": "Qiniu Cloud provider for GameFrameX ObjectStorage. Implements QiNiuYunObjectStorageManager for Qiniu Cloud Kodo, allowing you to upload and download files and directories to and from Qiniu Cloud buckets in both runtime and editor through the ObjectStorage contracts; downloads require DownloadDomain to be set, with the Qiniu SDK shipped under Plugins. Docs: https://gameframex.doc.alianblank.com\n\nGameFrameX ObjectStorage 的七牛云实现功能包。基于 ObjectStorage 契约实现七牛云 Kodo 的 QiNiuYunObjectStorageManager，运行时与编辑器均支持上传、下载文件和目录到/从七牛云存储桶，下载需配置 DownloadDomain，七牛云 SDK 位于 Plugins 目录。文档：https://gameframex.doc.alianblank.com",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "unity": "2019.4",
   "keywords": [
     "Game Frame X"

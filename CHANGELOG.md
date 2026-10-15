@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/compare/1.1.2...1.2.0) (2026-10-15)
+
+
+### Bug Fixes
+
+* **tests:** 将 TestUpload 改为验证工厂返回类型 ([c2ad27f](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/commit/c2ad27ffb300c364e6e319f954c7921a578301a7))
+
+
+### Features
+
+* **runtime:** 渠道实现迁移对齐核心包 Runtime 抽象 ([5db77d9](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/commit/5db77d9bbad23cebbb2a7f7c7006f35e577e486b))
+
 ## [1.1.2](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/compare/1.1.1...1.1.2) (2026-07-30)
 
 
