@@ -23,7 +23,35 @@
 
 ## プロジェクト概要
 
-**Object Storage QiNiu コンポーネント** - Object Storage コンポーネントの Qiniu Cloud オブジェクトストレージ実装を提供します。このパッケージは Qiniu Cloud Kodo のアップロードマネージャーを実装し、ファイルやディレクトリの Qiniu Cloud バケットへのアップロードを可能にします。
+**Object Storage QiNiu コンポーネント** - Object Storage コンポーネントの Qiniu Cloud オブジェクトストレージ実装を提供します。このパッケージは `QiNiuYunObjectStorageManager` を実装し、ランタイムとエディタの両方でファイルやディレクトリの Qiniu Cloud Kodo バケットへのアップロード・ダウンロードを可能にします。ダウンロードには `ObjectStorageOptions.DownloadDomain` の設定が必要です。Qiniu SDK は Plugins 以下に同梱されています。
+
+## 使用例
+
+```csharp
+using GameFrameX.ObjectStorage.Runtime;
+using GameFrameX.ObjectStorage.QiNiu.Runtime;
+
+// ファクトリでマネージャーを作成・初期化
+IObjectStorageManager manager = ObjectStorageManagerFactory.Create<QiNiuYunObjectStorageManager>(new ObjectStorageOptions
+{
+    AccessKey = "your-access-key",
+    SecretKey = "your-secret-key",
+    BucketName = "your-bucket",
+    Endpoint = null,  // QiNiu では無視（アップロードゾーンは華南に固定）
+    DownloadDomain = "https://your-download-domain",  // QiNiu ダウンロードに必須
+    SavePath = "bundles/android",
+});
+
+// 単一ファイルのアップロード（オブジェクトキー = SavePath + ファイル名）
+manager.UploadFile(new ObjectStorageUploadOptions { LocalPath = "local/file.bundle" });
+
+// 単一オブジェクトのダウンロード（ローカルディレクトリは自動作成）
+manager.DownloadFile(new ObjectStorageDownloadOptions
+{
+    ObjectKey = "bundles/android/file.bundle",
+    LocalPath = "downloads/file.bundle",
+});
+```
 
 ## クイックスタート
 

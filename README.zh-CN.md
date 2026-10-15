@@ -23,7 +23,35 @@
 
 ## 项目简介
 
-**Object Storage 七牛云组件** - 提供 Object Storage 组件的七牛云对象存储实现。本包实现了七牛云 Kodo 的上传管理器，允许你上传文件和目录到七牛云存储桶。
+**Object Storage 七牛云组件** - 提供 Object Storage 组件的七牛云对象存储实现。本包实现了 `QiNiuYunObjectStorageManager`，运行时与编辑器均支持上传、下载文件和目录到/从七牛云 Kodo 存储桶，下载需要配置 `ObjectStorageOptions.DownloadDomain`，七牛云 SDK 位于 Plugins 目录。
+
+## 使用示例
+
+```csharp
+using GameFrameX.ObjectStorage.Runtime;
+using GameFrameX.ObjectStorage.QiNiu.Runtime;
+
+// 通过工厂创建并初始化管理器
+IObjectStorageManager manager = ObjectStorageManagerFactory.Create<QiNiuYunObjectStorageManager>(new ObjectStorageOptions
+{
+    AccessKey = "your-access-key",
+    SecretKey = "your-secret-key",
+    BucketName = "your-bucket",
+    Endpoint = null,  // 七牛云忽略（上传区域固定为华南）
+    DownloadDomain = "https://your-download-domain",  // 七牛云下载必填
+    SavePath = "bundles/android",
+});
+
+// 上传单个文件（对象键 = SavePath + 文件名）
+manager.UploadFile(new ObjectStorageUploadOptions { LocalPath = "local/file.bundle" });
+
+// 下载单个对象（自动创建本地目录）
+manager.DownloadFile(new ObjectStorageDownloadOptions
+{
+    ObjectKey = "bundles/android/file.bundle",
+    LocalPath = "downloads/file.bundle",
+});
+```
 
 ## 快速开始
 

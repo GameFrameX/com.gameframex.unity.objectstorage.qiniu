@@ -23,7 +23,35 @@ All-in-One Solution for Indie Game Development · Empowering Indie Developers' D
 
 ## Project Overview
 
-**Object Storage QiNiu Component** - Provides the Qiniu Cloud object storage implementation for the Object Storage component. This package implements the upload manager for Qiniu Cloud Kodo, allowing you to upload files and directories to Qiniu Cloud buckets.
+**Object Storage QiNiu Component** - Provides the Qiniu Cloud object storage implementation for the Object Storage component. This package implements `QiNiuYunObjectStorageManager`, allowing you to upload and download files and directories to and from Qiniu Cloud Kodo buckets in both runtime and editor builds. Downloads require `ObjectStorageOptions.DownloadDomain` to be set. The Qiniu SDK is shipped under Plugins.
+
+## Usage
+
+```csharp
+using GameFrameX.ObjectStorage.Runtime;
+using GameFrameX.ObjectStorage.QiNiu.Runtime;
+
+// Create and initialize the manager through the factory
+IObjectStorageManager manager = ObjectStorageManagerFactory.Create<QiNiuYunObjectStorageManager>(new ObjectStorageOptions
+{
+    AccessKey = "your-access-key",
+    SecretKey = "your-secret-key",
+    BucketName = "your-bucket",
+    Endpoint = null,  // ignored by QiNiu (upload zone is fixed to South China)
+    DownloadDomain = "https://your-download-domain",  // required for QiNiu downloads
+    SavePath = "bundles/android",
+});
+
+// Upload a single file (object key = SavePath + file name)
+manager.UploadFile(new ObjectStorageUploadOptions { LocalPath = "local/file.bundle" });
+
+// Download a single object (local directories are created automatically)
+manager.DownloadFile(new ObjectStorageDownloadOptions
+{
+    ObjectKey = "bundles/android/file.bundle",
+    LocalPath = "downloads/file.bundle",
+});
+```
 
 ## Quick Start
 
