@@ -1,28 +1,31 @@
-using System;
-using GameFrameX.ObjectStorage.QiNiu.Editor;
-using GameFrameX.ObjectStorage.Editor;
+using GameFrameX.ObjectStorage.QiNiu.Runtime;
+using GameFrameX.ObjectStorage.Runtime;
 using NUnit.Framework;
 
 namespace GameFrameX.ObjectStorage.QiNiu.Tests
 {
     internal class UnitTests
     {
-        private DateTime dateTime, dateTime1;
-        IObjectStorageUploadManager _manager;
+        IObjectStorageManager _manager;
 
         [SetUp]
         public void Setup()
         {
-            _manager = ObjectStorageUploadFactory.Create<QiNiuYunObjectStorageUploadManager>("cy59rOpZxYeexzxzsasa2MiBheVXIEGzI", "o1kPquVb1JGdascxzdsadpxofJhh8SziAz6oCN", "aliaxzzlank-de");
-            _manager.SetSavePath("test/aa/zz");
+            _manager = ObjectStorageManagerFactory.Create<QiNiuYunObjectStorageManager>(new ObjectStorageOptions
+            {
+                AccessKey = "cy59rOpZxYeexzxzsasa2MiBheVXIEGzI",
+                SecretKey = "o1kPquVb1JGdascxzdsadpxofJhh8SziAz6oCN",
+                BucketName = "aliaxzzlank-de",
+                SavePath = "test/aa/zz",
+            });
         }
 
         [Test]
-        public void Create_ReturnsQiniuUploadManager()
+        public void Create_ReturnsQiniuManager()
         {
-            // 工厂按类型参数创建七牛上传管理器：本地凭证构造，无网络 I/O。
+            // 工厂按类型参数创建七牛云管理器：本地凭证构造，无网络 I/O。
             Assert.IsNotNull(_manager);
-            Assert.IsInstanceOf<QiNiuYunObjectStorageUploadManager>(_manager);
+            Assert.IsInstanceOf<QiNiuYunObjectStorageManager>(_manager);
         }
     }
 }
