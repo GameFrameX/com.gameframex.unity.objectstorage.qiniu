@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/compare/1.2.0...1.2.1) (2026-11-10)
+
+
+### Bug Fixes
+
+* **objectstorage.qiniu:** 添加完整 link.xml 防代码裁剪保护 ([4a6e61d](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/commit/4a6e61d494b742b5d2f03ba51c6c9e2de6cbaab5))
+
 # [1.2.0](https://github.com/gameframex/com.gameframex.unity.objectstorage.qiniu/compare/1.1.2...1.2.0) (2026-10-15)
 
 
